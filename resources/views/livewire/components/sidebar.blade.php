@@ -317,7 +317,8 @@
                         </span>
                     </a>
                 </li>
-                <li class="nav-item {{ request()->routeIs('administrador.ciclos') || request()->routeIs('administrador.roles') || request()->routeIs('administrador.vacantes') ? 'active' : '' }} dropdown">
+                <li
+                    class="nav-item {{ request()->routeIs('administrador.ciclos') || request()->routeIs('administrador.roles') || request()->routeIs('administrador.vacantes') ? 'active' : '' }} dropdown">
                     <a class="nav-link dropdown-toggle" href="#navbar-layout" data-bs-toggle="dropdown"
                         data-bs-auto-close="false" role="button" aria-expanded="true">
                         <span class="nav-link-icon d-md-none d-lg-inline-block">
@@ -335,7 +336,8 @@
                             Configuración
                         </span>
                     </a>
-                    <div class="dropdown-menu {{ request()->routeIs('administrador.ciclos') || request()->routeIs('administrador.roles') || request()->routeIs('administrador.vacantes') ? 'show' : '' }}">
+                    <div
+                        class="dropdown-menu {{ request()->routeIs('administrador.ciclos') || request()->routeIs('administrador.roles') || request()->routeIs('administrador.vacantes') ? 'show' : '' }}">
                         <div class="dropdown-menu-columns">
                             <div class="dropdown-menu-column">
                                 <a class="dropdown-item {{ request()->routeIs('administrador.ciclos') ? 'active fw-medium' : '' }}"
@@ -357,7 +359,8 @@
                 @endif
                 {{-- TRABAJADOR --}}
                 @if ($rol->id == 2 || $rol->id == 1)
-                <li class="nav-item {{ request()->routeIs('trabajador.inscripciones') || request()->routeIs('administrador.inscripciones') ? 'active' : '' }}">
+                <li
+                    class="nav-item {{ request()->routeIs('trabajador.inscripciones') || request()->routeIs('administrador.inscripciones') ? 'active' : '' }}">
                     <a class="nav-link" href="{{ route(HelperUnia::getRouteInscripciones()) }}">
                         <span class="nav-link-icon d-md-none d-lg-inline-block"><svg xmlns="http://www.w3.org/2000/svg"
                                 class="icon" width="24" height="24" viewBox="0 0 24 24" stroke-width="2"
@@ -373,12 +376,13 @@
                         </span>
                     </a>
                 </li>
-                <li class="nav-item {{ request()->routeIs('trabajador.ingresantes') || request()->routeIs('administrador.ingresantes') ? 'active' : '' }}">
+                <li
+                    class="nav-item {{ request()->routeIs('trabajador.ingresantes') || request()->routeIs('administrador.ingresantes') ? 'active' : '' }}">
                     <a class="nav-link" href="{{ route(HelperUnia::getRouteIngresantes()) }}">
                         <span class="nav-link-icon d-md-none d-lg-inline-block">
-                            <svg xmlns="http://www.w3.org/2000/svg" class="icon"
-                                width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"
-                                fill="none" stroke-linecap="round" stroke-linejoin="round">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="icon" width="24" height="24"
+                                viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none"
+                                stroke-linecap="round" stroke-linejoin="round">
                                 <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
                                 <path d="M12 9m-6 0a6 6 0 1 0 12 0a6 6 0 1 0 -12 0"></path>
                                 <path d="M12 15l3.4 5.89l1.598 -3.233l3.598 .232l-3.4 -5.889"></path>
@@ -390,7 +394,8 @@
                         </span>
                     </a>
                 </li>
-                <li class="nav-item {{ request()->routeIs('trabajador.buscar-postulantes') || request()->routeIs('administrador.buscar-postulantes') ? 'active' : '' }}">
+                <li
+                    class="nav-item {{ request()->routeIs('trabajador.buscar-postulantes') || request()->routeIs('administrador.buscar-postulantes') ? 'active' : '' }}">
                     <a class="nav-link" href="{{ route(HelperUnia::getRoutePostulantes()) }}">
                         <span class="nav-link-icon d-md-none d-lg-inline-block">
                             <svg xmlns="http://www.w3.org/2000/svg" class="icon" width="24" height="24"
@@ -580,39 +585,55 @@
                         </span>
                     </a>
                 </li>
-                {{-- <li class="nav-item">
-                    <a href="?theme=dark" class="nav-link hide-theme-dark" data-bs-toggle="tooltip"
-                        data-bs-placement="right" title="Habilitar modo oscuro">
+                <hr class="ms-lg-3 my-3">
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#navbar-layout" data-bs-toggle="dropdown"
+                        data-bs-auto-close="false" role="button" aria-expanded="true">
                         <span class="nav-link-icon d-md-none d-lg-inline-block">
                             <svg xmlns="http://www.w3.org/2000/svg" class="icon" width="24" height="24"
                                 viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none"
                                 stroke-linecap="round" stroke-linejoin="round">
                                 <path stroke="none" d="M0 0h24v24H0z" fill="none" />
-                                <path
-                                    d="M12 3c.132 0 .263 0 .393 0a7.5 7.5 0 0 0 7.92 12.446a9 9 0 1 1 -8.313 -12.454z" />
+                                <path d="M14 3v4a1 1 0 0 0 1 1h4" />
+                                <path d="M5 12v-7a2 2 0 0 1 2 -2h7l5 5v4" />
+                                <path d="M5 18h1.5a1.5 1.5 0 0 0 0 -3h-1.5v6" />
+                                <path d="M17 18h2" />
+                                <path d="M20 15h-3v6" />
+                                <path d="M11 15v6h1a2 2 0 0 0 2 -2v-2a2 2 0 0 0 -2 -2h-1z" />
                             </svg>
                         </span>
                         <span class="nav-link-title">
-                            Tema Oscuro
+                            Manual de Usuario
                         </span>
                     </a>
-                    <a href="?theme=light" class="nav-link hide-theme-light" data-bs-toggle="tooltip"
-                        data-bs-placement="right" title="Habilitar modo claro">
-                        <span class="nav-link-icon d-md-none d-lg-inline-block">
-                            <svg xmlns="http://www.w3.org/2000/svg" class="icon" width="24" height="24"
-                                viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none"
-                                stroke-linecap="round" stroke-linejoin="round">
-                                <path stroke="none" d="M0 0h24v24H0z" fill="none" />
-                                <path d="M12 12m-4 0a4 4 0 1 0 8 0a4 4 0 1 0 -8 0" />
-                                <path
-                                    d="M3 12h1m8 -9v1m8 8h1m-9 8v1m-6.4 -15.4l.7 .7m12.1 -.7l-.7 .7m0 11.4l.7 .7m-12.1 -.7l-.7 .7" />
-                            </svg>
-                        </span>
-                        <span class="nav-link-title">
-                            Tema Claro
-                        </span>
-                    </a>
-                </li> --}}
+                    <div class="dropdown-menu">
+                        <div class="dropdown-menu-columns">
+                            <div class="dropdown-menu-column">
+                                @if ($rol->id == 1)
+                                <a class="dropdown-item"
+                                    href="{{ asset('static/manuales/manual-usuario-administrador.pdf') }}"
+                                    target="_blacnk">
+                                    Administrador
+                                </a>
+                                @endif
+                                @if ($rol->id == 1 || $rol->id == 2)
+                                <a class="dropdown-item"
+                                    href="{{ asset('static/manuales/manual-usuario-trabajador.pdf') }}"
+                                    target="_blacnk">
+                                    Trabajador
+                                </a>
+                                @endif
+                                @if ($rol->id == 1 || $rol->id == 2 || $rol->id == 4)
+                                <a class="dropdown-item"
+                                    href="{{ asset('static/manuales/manual-usuario-postulante.pdf') }}"
+                                    target="_blacnk">
+                                    Postulante
+                                </a>
+                                @endif
+                            </div>
+                        </div>
+                    </div>
+                </li>
             </ul>
         </div>
     </div>
