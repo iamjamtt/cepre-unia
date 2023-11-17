@@ -224,26 +224,27 @@
                                                 </div>
                                                 @endif
                                             @endif
-                                            @if (!$dni_archivo || !$certificado_archivo || !$partida_archivo || !$constancia_archivo)
-                                            <div>
-                                                <small class="form-hint">
-                                                    - La fotografía debe ser nítida. <br>
-                                                    - Se aceptan los formatos JPG, JPEG y PNG.
-                                                </small>
-                                            </div>
-                                            <div class="d-flex flex-column">
-                                                <button type="button" class="btn btn-indigo mt-3"
-                                                    wire:loading.attr="disabled" wire:target="guardar_documentos"
-                                                    wire:click="guardar_documentos">
-                                                    <div wire:loading.remove wire:target="guardar_documentos">
-                                                        Guardar
-                                                    </div>
-                                                    <div wire:loading wire:target="guardar_documentos">
-                                                        <span
-                                                            class="spinner-border spinner-border-sm align-middle"></span>
-                                                    </div>
-                                                </button>
-                                            </div>
+                                            {{-- @if (!$dni_archivo || !$certificado_archivo || !$partida_archivo || !$constancia_archivo ) --}}
+                                            @if (!$dni_archivo || !$certificado_archivo || !$partida_archivo)
+                                                <div>
+                                                    <small class="form-hint">
+                                                        - La fotografía debe ser nítida. <br>
+                                                        - Se aceptan los formatos JPG, JPEG y PNG.
+                                                    </small>
+                                                </div>
+                                                <div class="d-flex flex-column">
+                                                    <button type="button" class="btn btn-indigo mt-3"
+                                                        wire:loading.attr="disabled" wire:target="guardar_documentos"
+                                                        wire:click="guardar_documentos">
+                                                        <div wire:loading.remove wire:target="guardar_documentos">
+                                                            Guardar
+                                                        </div>
+                                                        <div wire:loading wire:target="guardar_documentos">
+                                                            <span
+                                                                class="spinner-border spinner-border-sm align-middle"></span>
+                                                        </div>
+                                                    </button>
+                                                </div>
                                             @else
                                                 @if ($inscripcion->documento == 1)
                                                 <span class="badge bg-teal px-3 py-2 shadow shadow-sm fs-4 w-full"

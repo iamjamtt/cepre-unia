@@ -29,7 +29,6 @@ class Home extends Component
 
 
     public $foto_archivo;
-    public $mestizo;
     public $dni_archivo;
     public $certificado_archivo;
     public $partida_archivo;

@@ -103,8 +103,13 @@ class Matricula extends Component
     }
 
     public function updatedArea($value) {
-        $this->carreras = Area::find($value)->carreras;
-        $this->carrera = null;
+        if ($value) {
+            $this->carreras = Area::find($value)->carreras;
+            $this->carrera = null;
+        } else {
+            $this->carreras = collect([]);
+            $this->carrera = null;
+        }
     }
 
     public function finalizar_matricula() {
