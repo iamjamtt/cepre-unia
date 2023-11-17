@@ -1,5 +1,6 @@
 <div class="row g-0 flex-fill">
-    <div class="col-12 col-lg-6 col-xl-4 border-top-wide border-teal d-flex flex-column justify-content-center animate__animated animate__fadeIn animate__faster">
+    <div
+        class="col-12 col-lg-6 col-xl-4 border-top-wide border-teal d-flex flex-column justify-content-center animate__animated animate__fadeIn animate__faster">
         <div class="container container-tight my-5 px-lg-5">
             <div class="text-center mb-5">
                 <img src="{{ asset('static/portada.webp') }}" alt="portada">
@@ -29,9 +30,8 @@
                     <label class="form-label" for="contraseña">
                         Contraseña <span class="text-danger">*</span>
                     </label>
-                    <input type="password" wire:model.live="contraseña"
-                        id="contraseña" class="form-control @error('contraseña') is-invalid @enderror"
-                        placeholder="********">
+                    <input type="password" wire:model.live="contraseña" id="contraseña"
+                        class="form-control @error('contraseña') is-invalid @enderror" placeholder="********">
                     @error('contraseña')
                     <span class="invalid-feedback">
                         {{ $message }}
@@ -51,6 +51,29 @@
                 <button type="button" wire:click="registro" class="btn btn-indigo w-100">
                     Registrate
                 </button>
+            </div>
+            <div class="hr-text">x</div>
+            <div class=" mt-3">
+                <a href="#" class="card card-link card-link-pop">
+                    <div class="card-body">
+                        <div class="d-flex align-items-center justify-content-center gap-2">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="text-muted"
+                                width="28" height="28" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"
+                                fill="none" stroke-linecap="round" stroke-linejoin="round">
+                                <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                                <path d="M14 3v4a1 1 0 0 0 1 1h4" />
+                                <path d="M5 12v-7a2 2 0 0 1 2 -2h7l5 5v4" />
+                                <path d="M5 18h1.5a1.5 1.5 0 0 0 0 -3h-1.5v6" />
+                                <path d="M17 18h2" />
+                                <path d="M20 15h-3v6" />
+                                <path d="M11 15v6h1a2 2 0 0 0 2 -2v-2a2 2 0 0 0 -2 -2h-1z" />
+                            </svg>
+                            <span class="fs-3 text-muted">
+                                Descargar Manual de Usuario
+                            </span>
+                        </div>
+                    </div>
+                </a>
             </div>
         </div>
     </div>
