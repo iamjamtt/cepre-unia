@@ -54,7 +54,9 @@
             </div>
             <div class="hr-text">x</div>
             <div class=" mt-3">
-                <a href="#" class="card card-link card-link-pop">
+                <a href="{{ asset('static/manuales/manual-usuario-postulante.pdf') }}"
+                    target="_blank"
+                    class="card card-link card-link-pop">
                     <div class="card-body">
                         <div class="d-flex align-items-center justify-content-center gap-2">
                             <svg xmlns="http://www.w3.org/2000/svg" class="text-muted"
