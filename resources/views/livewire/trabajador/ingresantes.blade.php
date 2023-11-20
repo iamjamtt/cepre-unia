@@ -124,9 +124,10 @@
                                     <thead>
                                         <tr>
                                             <th class="w-1">No.</th>
-                                            <th class="col-2">Dni</th>
+                                            <th class="col-1">Dni</th>
                                             <th class="col-4">Postulante</th>
-                                            <th class="col-3">Puntaje</th>
+                                            <th>Grupo Étnico</th>
+                                            <th>Puntaje</th>
                                             <th class="col-2">Estado</th>
                                         </tr>
                                     </thead>
@@ -142,6 +143,9 @@
                                             <td>
                                                 {{ HelperUnia::getNombreCompleto($item2->persona_id) }}
                                             </td>
+                                            <td class="text-secondary">
+                                                {{ $item2->persona->grupo->nombre }}
+                                            </td>
                                             <td>
                                                 {{ $item2->puntaje }}
                                             </td>
@@ -155,7 +159,7 @@
                                         </tr>
                                         @empty
                                         <tr style="height: 14.25rem;">
-                                            <td colspan="5">
+                                            <td colspan="6">
                                                 <div class="d-flex justify-content-center align-item-center"">
                                                     <span class="text-secondary">
                                                         No hay resultados para mostrar
