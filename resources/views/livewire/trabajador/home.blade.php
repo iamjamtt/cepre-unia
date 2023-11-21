@@ -213,7 +213,7 @@
                                 </div>
                                 <div class="mb-3 text-center">
                                     <div class="fw-bold fs-2">
-                                        Reportes
+                                        Reporte
                                     </div>
                                     <div class="text-secondary mt-2">
                                         de inscritos en el Ciclo {{ HelperUnia::getNombreCiclo() }}
@@ -247,7 +247,7 @@
                                 </div>
                                 <div class="mb-3 text-center">
                                     <div class="fw-bold fs-2">
-                                        Reportes
+                                        Reporte
                                     </div>
                                     <div class="text-secondary mt-2">
                                         de ingresantes en el Ciclo {{ HelperUnia::getNombreCiclo() }}
@@ -256,6 +256,40 @@
                                 <div>
                                     <button type="button" class="btn btn-outline-yellow px-4"
                                         wire:click="reporte_ingresantes" @if($ingresantes_count == 0) disabled @endif>
+                                        Descargar reporte
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card card-stacked animate__animated animate__fadeIn animate__faster">
+                        <div class="card-body">
+                            <div class="d-flex flex-column justify-content-center align-items-center my-2">
+                                <div class="mb-3">
+                                    <span class="bg-pink-lt text-white avatar avatar-lg">
+                                        <svg xmlns="http://www.w3.org/2000/svg" class="icon" width="24" height="24"
+                                            viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none"
+                                            stroke-linecap="round" stroke-linejoin="round">
+                                            <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+                                            <path d="M12 9m-6 0a6 6 0 1 0 12 0a6 6 0 1 0 -12 0"></path>
+                                            <path d="M12 15l3.4 5.89l1.598 -3.233l3.598 .232l-3.4 -5.889"></path>
+                                            <path d="M6.802 12l-3.4 5.89l3.598 -.233l1.598 3.232l3.4 -5.889"></path>
+                                        </svg>
+                                    </span>
+                                </div>
+                                <div class="mb-3 text-center">
+                                    <div class="fw-bold fs-2">
+                                        Reporte por Grupo Étnico y Carreras
+                                    </div>
+                                    <div class="text-secondary mt-2">
+                                        de postulantes e ingresantes en el Ciclo {{ HelperUnia::getNombreCiclo() }}
+                                    </div>
+                                </div>
+                                <div>
+                                    <button type="button" class="btn btn-outline-pink px-4"
+                                        wire:click="reporte_by_grupo_etnico_and_carreras">
                                         Descargar reporte
                                     </button>
                                 </div>

@@ -12,6 +12,7 @@ use Illuminate\Support\Facades\File;
 use Illuminate\Support\Str;
 use Maatwebsite\Excel\Facades\Excel;
 use App\Exports\Reportes\InscripcionesByCiclo;
+use App\Exports\Reportes\PostulantesIngresantesByGrupoAndCarrera;
 use App\Models\Grupo;
 use App\Models\Ingresante;
 use Livewire\Attributes\Url;
@@ -47,6 +48,12 @@ class Home extends Component
         $nombre_excel = 'listado de postulantes ingresantes en el ciclo';
         $nombre_excel = Str::slug($nombre_excel, '-') . '-' . HelpersUnia::getNombreCiclo() . '.xlsx';
         return Excel::download(new IngresantesByCiclo(HelpersUnia::getIdCiclo()), $nombre_excel);
+    }
+
+    public function reporte_by_grupo_etnico_and_carreras() {
+        $nombre_excel = 'listado de postulantes e ingresantes por grupo etnico y carreras en el ciclo';
+        $nombre_excel = Str::slug($nombre_excel, '-') . '-' . HelpersUnia::getNombreCiclo() . '.xlsx';
+        return Excel::download(new PostulantesIngresantesByGrupoAndCarrera(HelpersUnia::getIdCiclo()), $nombre_excel);
     }
 
     public function render() {
