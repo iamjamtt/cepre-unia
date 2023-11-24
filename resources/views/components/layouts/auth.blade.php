@@ -58,6 +58,7 @@
     <!-- Tabler Core -->
     <script src="{{ asset('dist/js/tabler.min.js?1684106062') }}" defer data-navigate-track></script>
     <script src="{{ asset('dist/js/demo.min.js?1684106062') }}" defer data-navigate-track></script>
+    <script src="https://code.jquery.com/jquery-3.7.1.js" data-navigate-track></script>
     <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/toastify-js" data-navigate-track></script>
 </head>
 
@@ -88,8 +89,12 @@
                     }
                 }).showToast();
             })
+            window.addEventListener('modal', event => {
+                $(event.detail.modal).modal(event.detail.action)
+            })
         })
     </script>
+
 </body>
 
 </html>

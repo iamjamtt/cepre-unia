@@ -28,6 +28,7 @@ class Login extends Component
     // variables de ciclo
     public $ciclo;
     public $fechas;
+    public $usuario;
 
     public function mount() {
         $this->ciclo = Ciclo::find(HelpersUnia::getIdCiclo());
@@ -62,7 +63,6 @@ class Login extends Component
                 $fechaInicio = $this->fechas->iniInscripcion;
                 $fechaFin = $this->fechas->finInscripcion;
                 if (Carbon::now()->between($fechaInicio, $fechaFin)) {
-                    auth()->login($user);
                     $persona = $user->persona;
                     $inscripcion = Inscripcion::where('persona_id', $persona->id)
                         ->where('user_id', $user->id)
@@ -71,8 +71,25 @@ class Login extends Component
                         ->where('borrado', 0)
                         ->first();
                     if (!$inscripcion) {
+                        $ultima_inscripcion = Inscripcion::where('persona_id', $persona->id)
+                            ->where('user_id', $user->id)
+                            ->where('ciclo_id', '!=', HelpersUnia::getIdCiclo())
+                            ->where('borrado', 0)
+                            ->orderBy('id', 'desc')
+                            ->first();
+                        if ($ultima_inscripcion) {
+                            // dd($ultima_inscripcion);
+                            $this->dispatch('modal',
+                                modal: '#modal-opciones',
+                                action: 'show'
+                            );
+                            $this->usuario = $user;
+                            return;
+                        }
+                        auth()->login($user);
                         return redirect()->route('postulante.matricula');
                     }
+                    auth()->login($user);
                     return redirect()->route('postulante.home');
                 } else {
                     // evento de toast basica
@@ -93,6 +110,11 @@ class Login extends Component
             );
             return;
         }
+    }
+
+    public function continuar() {
+        auth()->login($this->usuario);
+        return redirect()->route('postulante.matricula');
     }
 
     public function registro() {
