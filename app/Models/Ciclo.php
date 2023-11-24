@@ -11,6 +11,7 @@ class Ciclo extends Model
 
     protected $table = 'ciclos';
     protected $fillable = [
+        'numero',
         'nombre',
         'descripcion',
         'resolucion_ruta',
