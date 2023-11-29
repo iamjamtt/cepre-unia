@@ -36,6 +36,18 @@
                             Por favor llene los datos requeridos para iniciar con su matrícula.
                         </strong>
                     </div>
+                    <div class="alert alert-info mb-3 animate__animated animate__fadeIn animate__faster">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="icon me-2" width="24" height="24" viewBox="0 0 24 24"
+                            stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                            <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+                            <path d="M12 9h.01"></path>
+                            <path d="M11 12h1v4h1"></path>
+                            <path d="M12 3c7.2 0 9 1.8 9 9s-1.8 9 -9 9s-9 -1.8 -9 -9s1.8 -9 9 -9z"></path>
+                        </svg>
+                        <strong>
+                            Si ya realizo el registro en anteriores convocatorias, ya no es necesario volver a registrarse, solo ingrese con su DNI y contraseña.
+                        </strong>
+                    </div>
                     @if ($paso == 1)
                     <div class="card card-stacked animate__animated animate__fadeIn animate__faster">
                         <div class="card-header bg-teal-lt">
