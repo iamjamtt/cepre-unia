@@ -6,7 +6,7 @@
                 <div class="col">
                     <!-- Page pre-title -->
                     <h2 class="page-title text-uppercase">
-                        Finalizar Matrícula
+                        Finalizar Matrícula - CICLO {{ HelperUnia::getNombreCiclo() }}
                     </h2>
                     <div class="page-pretitle">
                         <ol class="breadcrumb breadcrumb-arrows" aria-label="breadcrumbs">
