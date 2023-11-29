@@ -3,6 +3,7 @@
 namespace App\Livewire\Postulante;
 
 use App\Helpers\HelpersUnia;
+use App\Models\Archivo;
 use App\Models\Area;
 use App\Models\Fecha;
 use App\Models\Inscripcion;
@@ -113,6 +114,8 @@ class Matricula extends Component
     }
 
     public function finalizar_matricula() {
+        // verificamos si ya tiene una matricula antigua y copiamos los documentos a su matricula actual
+        $this->verificar_matriculas_antiguas();
         // creamos la matricula
         $inscripcion = new Inscripcion();
         $inscripcion->estado = 1;
@@ -158,6 +161,53 @@ class Matricula extends Component
         );
         // redireccionamos al home
         return redirect()->route('postulante.home');
+    }
+
+    public function verificar_matriculas_antiguas() {
+        // verificamos si ya tiene una matricula antigua
+        $inscripcion = Inscripcion::where('ciclo_id', '!=', HelpersUnia::getIdCiclo())
+            ->where('persona_id', auth()->user()->persona->id)
+            ->where('activo', 1)
+            ->where('borrado', 0)
+            ->orderBy('created_at', 'desc')
+            ->first();
+        if ($inscripcion) {
+            $persona_id = $inscripcion->persona_id;
+            $ciclo_id = $inscripcion->ciclo_id;
+            $dni = Archivo::where('persona_id', $persona_id)
+                ->where('ciclo_id', $ciclo_id)
+                ->where('tipo', 2)
+                ->orderBy('created_at', 'desc')
+                ->first();
+            $certificado = Archivo::where('persona_id', $persona_id)
+                ->where('ciclo_id', $ciclo_id)
+                ->where('tipo', 4)
+                ->orderBy('created_at', 'desc')
+                ->first();
+            $partida = Archivo::where('persona_id', $persona_id)
+                ->where('ciclo_id', $ciclo_id)
+                ->where('tipo', 5)
+                ->orderBy('created_at', 'desc')
+                ->first();
+            $constancia = Archivo::where('persona_id', $persona_id)
+                ->where('ciclo_id', $ciclo_id)
+                ->where('tipo', 6)
+                ->orderBy('created_at', 'desc')
+                ->first();
+            // copiamos los documentos a su matricula actual
+            if ($dni) {
+                HelpersUnia::copiarDocumentos($dni->ruta, $dni->nombre, $dni->tipo, $dni->size, $persona_id);
+            }
+            if ($certificado) {
+                HelpersUnia::copiarDocumentos($certificado->ruta, $certificado->nombre, $certificado->tipo, $certificado->size, $persona_id);
+            }
+            if ($partida) {
+                HelpersUnia::copiarDocumentos($partida->ruta, $partida->nombre, $partida->tipo, $partida->size, $persona_id);
+            }
+            if ($constancia) {
+                HelpersUnia::copiarDocumentos($constancia->ruta, $constancia->nombre, $constancia->tipo, $constancia->size, $persona_id);
+            }
+        }
     }
 
     public function render() {

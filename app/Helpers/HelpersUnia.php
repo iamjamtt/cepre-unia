@@ -250,4 +250,29 @@ class HelpersUnia {
             $archivo->save();
         }
     }
+
+    public static function copiarDocumentos($path_old, $nombre, $tipo, $size, $persona_id) {
+        // Obtiene el nombre del ciclo actual
+        $nombreCiclo = HelpersUnia::getNombreCiclo();
+        // Define la nueva ruta de base
+        $path_new = 'uploads/archivos/' . $nombreCiclo . '/';
+        // Divide la ruta antigua en partes
+        $parts = explode('/', $path_old);
+        // Selecciona las partes relevantes (asumiendo que siempre son las primeras 3 partes)
+        $relevant_path = implode('/', array_slice($parts, 0, 3));
+        // Calcula el nombre del archivo
+        $filename = end($parts);
+        // Copia el archivo
+        File::copy($path_old, $path_new . $filename);
+        // Crea el registro en la base de datos
+        $archivo = new Archivo();
+        $archivo->nombre = $nombre;
+        $archivo->ruta = $path_new . $filename;
+        $archivo->tipo = $tipo;
+        $archivo->estado = 1;
+        $archivo->size = $size;
+        $archivo->ciclo_id = HelpersUnia::getIdCiclo();
+        $archivo->persona_id = $persona_id;
+        $archivo->save();
+    }
 }
