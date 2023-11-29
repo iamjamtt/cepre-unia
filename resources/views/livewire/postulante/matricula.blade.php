@@ -110,7 +110,7 @@
                                         Fotografía del Voucher de Pago
                                     </label>
                                     <input type="file" class="form-control @error('voucher') is-invalid @enderror" id="voucher"
-                                        wire:model.live="voucher" acept="image/jpeg,image/png,image/jpg" />
+                                        wire:model.live="voucher" acCept="image/jpeg,image/png,image/jpg" />
                                     <small class="form-hint">
                                         - La fotografía debe ser nítida. <br>
                                         - Se aceptan los formatos JPG, JPEG y PNG.
