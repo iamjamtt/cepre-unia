@@ -159,7 +159,7 @@
                                                         @enderror
                                                     </div>
                                                     <div class="col-auto">
-                                                        <button class="btn btn-icon btn-blue">
+                                                        <button class="btn btn-icon btn-blue" wire:click="subir_dni">
                                                             <svg xmlns="http://www.w3.org/2000/svg"
                                                                 class="icon icon-tabler icon-tabler-arrow-bar-up"
                                                                 width="24" height="24" viewBox="0 0 24 24"
@@ -197,10 +197,10 @@
                                                         <div class="invalid-feedback">
                                                             {{ $message }}
                                                         </div>
-                                                @enderror
+                                                        @enderror
                                                     </div>
                                                     <div class="col-auto">
-                                                        <button class="btn btn-icon btn-blue">
+                                                        <button class="btn btn-icon btn-blue" wire:click="subir_certificado">
                                                             <svg xmlns="http://www.w3.org/2000/svg"
                                                                 class="icon icon-tabler icon-tabler-arrow-bar-up"
                                                                 width="24" height="24" viewBox="0 0 24 24"
@@ -241,7 +241,7 @@
                                                         @enderror
                                                     </div>
                                                     <div class="col-auto">
-                                                        <button class="btn btn-icon btn-blue">
+                                                        <button class="btn btn-icon btn-blue" wire:click="subir_partida">
                                                             <svg xmlns="http://www.w3.org/2000/svg"
                                                                 class="icon icon-tabler icon-tabler-arrow-bar-up"
                                                                 width="24" height="24" viewBox="0 0 24 24"
@@ -259,50 +259,48 @@
                                             </div>
                                             @endif
                                             @if ($mestizo == false)
-                                            @if ($constancia_archivo)
-                                            <span class="badge bg-indigo px-3 py-2 shadow shadow-sm fs-4 w-full mb-3"
-                                                data-bs-toggle="tooltip" data-bs-placement="top"
-                                                title="Para editar la Constancia de Comunidad ve al módulo de documentos">
-                                                Constancia de comunidad subido con exito
-                                            </span>
-                                            @else
-                                            <div class="text-dark mb-2">
-                                                <label for="constancia" class="form-label required">
-                                                    Constancia de comunidad u otros
-                                                </label>
-                                                <div class="row g-2">
-                                                    <div class="col">
-                                                        <input type="file"
-                                                            class="form-control @error('constancia') is-invalid @enderror"
-                                                            id="constancia" wire:model.live="constancia"
-                                                            accept="image/jpeg,image/png,image/jpg" />
-                                                        @error('constancia')
-                                                        <div class="invalid-feedback">
-                                                            {{ $message }}
+                                                @if ($constancia_archivo)
+                                                <span class="badge bg-indigo px-3 py-2 shadow shadow-sm fs-4 w-full mb-3"
+                                                    data-bs-toggle="tooltip" data-bs-placement="top"
+                                                    title="Para editar la Constancia de Comunidad ve al módulo de documentos">
+                                                    Constancia de comunidad subido con exito
+                                                </span>
+                                                @else
+                                                <div class="text-dark mb-2">
+                                                    <label for="constancia" class="form-label required">
+                                                        Constancia de comunidad u otros
+                                                    </label>
+                                                    <div class="row g-2">
+                                                        <div class="col">
+                                                            <input type="file"
+                                                                class="form-control @error('constancia') is-invalid @enderror"
+                                                                id="constancia" wire:model.live="constancia"
+                                                                accept="image/jpeg,image/png,image/jpg" />
+                                                            @error('constancia')
+                                                            <div class="invalid-feedback">
+                                                                {{ $message }}
+                                                            </div>
+                                                            @enderror
                                                         </div>
-                                                        @enderror
-                                                    </div>
-                                                    <div class="col-auto">
-                                                        <button class="btn btn-icon btn-blue">
-                                                            <svg xmlns="http://www.w3.org/2000/svg"
-                                                                class="icon icon-tabler icon-tabler-arrow-bar-up"
-                                                                width="24" height="24" viewBox="0 0 24 24"
-                                                                stroke-width="2" stroke="currentColor" fill="none"
-                                                                stroke-linecap="round" stroke-linejoin="round">
-                                                                <path stroke="none" d="M0 0h24v24H0z" fill="none" />
-                                                                <path d="M12 4l0 10" />
-                                                                <path d="M12 4l4 4" />
-                                                                <path d="M12 4l-4 4" />
-                                                                <path d="M4 20l16 0" />
-                                                            </svg>
-                                                        </button>
+                                                        <div class="col-auto">
+                                                            <button class="btn btn-icon btn-blue" wire:click="subir_constancia">
+                                                                <svg xmlns="http://www.w3.org/2000/svg"
+                                                                    class="icon icon-tabler icon-tabler-arrow-bar-up"
+                                                                    width="24" height="24" viewBox="0 0 24 24"
+                                                                    stroke-width="2" stroke="currentColor" fill="none"
+                                                                    stroke-linecap="round" stroke-linejoin="round">
+                                                                    <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                                                                    <path d="M12 4l0 10" />
+                                                                    <path d="M12 4l4 4" />
+                                                                    <path d="M12 4l-4 4" />
+                                                                    <path d="M4 20l16 0" />
+                                                                </svg>
+                                                            </button>
+                                                        </div>
                                                     </div>
                                                 </div>
-                                            </div>
+                                                @endif
                                             @endif
-                                            @endif
-                                            {{-- @if (!$dni_archivo || !$certificado_archivo || !$partida_archivo ||
-                                            !$constancia_archivo ) --}}
                                             @if (!$dni_archivo || !$certificado_archivo || !$partida_archivo)
                                             <div>
                                                 <small class="form-hint">
@@ -310,33 +308,20 @@
                                                     - Se aceptan los formatos JPG, JPEG y PNG.
                                                 </small>
                                             </div>
-                                            {{-- <div class="d-flex flex-column">
-                                                <button type="button" class="btn btn-indigo mt-3"
-                                                    wire:loading.attr="disabled" wire:target="guardar_documentos"
-                                                    wire:click="guardar_documentos">
-                                                    <div wire:loading.remove wire:target="guardar_documentos">
-                                                        Guardar
-                                                    </div>
-                                                    <div wire:loading wire:target="guardar_documentos">
-                                                        <span
-                                                            class="spinner-border spinner-border-sm align-middle"></span>
-                                                    </div>
-                                                </button>
-                                            </div> --}}
                                             @else
-                                            @if ($inscripcion->documento == 1)
-                                            <span class="badge bg-teal px-3 py-2 shadow shadow-sm fs-4 w-full"
-                                                data-bs-toggle="tooltip" data-bs-placement="bottom"
-                                                title="Para editar los documentos ve al módulo de documentos">
-                                                Documentos verificados
-                                            </span>
-                                            @else
-                                            <span class="badge bg-yellow px-3 py-2 shadow shadow-sm fs-4 w-full"
-                                                data-bs-toggle="tooltip" data-bs-placement="bottom"
-                                                title="Para editar los documentos ve al módulo de documentos">
-                                                Documentos por verificar
-                                            </span>
-                                            @endif
+                                                @if ($inscripcion->documento == 1)
+                                                <span class="badge bg-teal px-3 py-2 shadow shadow-sm fs-4 w-full"
+                                                    data-bs-toggle="tooltip" data-bs-placement="bottom"
+                                                    title="Para editar los documentos ve al módulo de documentos">
+                                                    Documentos verificados
+                                                </span>
+                                                @else
+                                                <span class="badge bg-yellow px-3 py-2 shadow shadow-sm fs-4 w-full"
+                                                    data-bs-toggle="tooltip" data-bs-placement="bottom"
+                                                    title="Para editar los documentos ve al módulo de documentos">
+                                                    Documentos por verificar
+                                                </span>
+                                                @endif
                                             @endif
                                         </div>
                                     </div>

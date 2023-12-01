@@ -110,6 +110,62 @@ class Home extends Component
         );
     }
 
+    public function subir_dni() {
+        $this->validate([
+            'dni' => 'required|image|max:2048'
+        ]);
+        if ($this->dni) {
+            HelpersUnia::subirArchivo($this->dni, 'archivos', 2, HelpersUnia::getIdCiclo(), auth()->user()->persona->id);
+        }
+        // evento de toast basica
+        $this->dispatch('toast-basico',
+            text: 'Se ha guardado el documento correctamente.',
+            color: 'success'
+        );
+    }
+
+    public function subir_certificado() {
+        $this->validate([
+            'certificado' => 'required|image|max:2048'
+        ]);
+        if ($this->certificado) {
+            HelpersUnia::subirArchivo($this->certificado, 'archivos', 4, HelpersUnia::getIdCiclo(), auth()->user()->persona->id);
+        }
+        // evento de toast basica
+        $this->dispatch('toast-basico',
+            text: 'Se ha guardado el documento correctamente.',
+            color: 'success'
+        );
+    }
+
+    public function subir_partida() {
+        $this->validate([
+            'partida' => 'required|image|max:2048'
+        ]);
+        if ($this->partida) {
+            HelpersUnia::subirArchivo($this->partida, 'archivos', 5, HelpersUnia::getIdCiclo(), auth()->user()->persona->id);
+        }
+        // evento de toast basica
+        $this->dispatch('toast-basico',
+            text: 'Se ha guardado el documento correctamente.',
+            color: 'success'
+        );
+    }
+
+    public function subir_constancia() {
+        $this->validate([
+            'constancia' => 'required|image|max:2048'
+        ]);
+        if ($this->constancia) {
+            HelpersUnia::subirArchivo($this->constancia, 'archivos', 6, HelpersUnia::getIdCiclo(), auth()->user()->persona->id);
+        }
+        // evento de toast basica
+        $this->dispatch('toast-basico',
+            text: 'Se ha guardado el documento correctamente.',
+            color: 'success'
+        );
+    }
+
     public function render() {
         $user = auth()->user();
         $persona = $user->persona;
