@@ -111,7 +111,6 @@
         </div>
     </div>
     <div class="col-12 col-lg-6 col-xl-8 d-none d-lg-block">
-        <!-- Photo -->
         <div class="bg-cover h-100 min-vh-100" style="background-image: url({{ asset('static/fondo-login.webp') }})">
         </div>
     </div>
@@ -130,9 +129,6 @@
                         <path d="M19 22v.01" />
                         <path d="M19 19a2.003 2.003 0 0 0 .914 -3.782a1.98 1.98 0 0 0 -2.414 .483" />
                     </svg>
-                    {{-- <h3>
-                        ¿Quiere volver a postular?
-                    </h3> --}}
                     <div class="mb-3">
                         Usted ya cuenta con un registro en el sistema, si continua se redireccionará al modulo para realizar su matrícula final.
                     </div>

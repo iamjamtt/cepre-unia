@@ -11,8 +11,6 @@
     <link rel="shortcut icon" href="{{ asset('favicon.ico') }}" type="image/x-icon">
     <!-- CSS files -->
     <link href="{{ asset('dist/css/tabler.min.css?1684106062') }}" rel="stylesheet" />
-    <link href="{{ asset('dist/css/tabler-flags.min.css?1684106062') }}" rel="stylesheet" />
-    <link href="{{ asset('dist/css/tabler-payments.min.css?1684106062') }}" rel="stylesheet" />
     <link href="{{ asset('dist/css/tabler-vendors.min.css?1684106062') }}" rel="stylesheet" />
     <link href="{{ asset('dist/css/demo.min.css?1684106062') }}" rel="stylesheet" />
     <link
@@ -32,29 +30,7 @@
         body {
             font-feature-settings: "cv03", "cv04", "cv11";
         }
-
-        .swal2-title {
-            font-family: 'Inter', sans-serif !important;
-            font-weight: 700 !important;
-        }
-
-        .swal2-html-container {
-            font-family: 'Inter', sans-serif !important;
-        }
-
-        .swal2-confirm {
-            font-family: 'Inter', sans-serif !important;
-        }
-
-        .swal2-cancel {
-            font-family: 'Inter', sans-serif !important;
-        }
     </style>
-    <!-- Libs JS -->
-    <script src="{{ asset('dist/libs/apexcharts/dist/apexcharts.min.js?1684106062') }}" defer data-navigate-track></script>
-    <script src="{{ asset('dist/libs/jsvectormap/dist/js/jsvectormap.min.js?1684106062') }}" defer data-navigate-track></script>
-    <script src="{{ asset('dist/libs/jsvectormap/dist/maps/world.js?1684106062') }}" defer data-navigate-track></script>
-    <script src="{{ asset('dist/libs/jsvectormap/dist/maps/world-merc.js?1684106062') }}" defer data-navigate-track></script>
     <!-- Tabler Core -->
     <script src="{{ asset('dist/js/tabler.min.js?1684106062') }}" defer data-navigate-track></script>
     <script src="{{ asset('dist/js/demo.min.js?1684106062') }}" defer data-navigate-track></script>
