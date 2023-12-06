@@ -73,38 +73,48 @@
                                     </div>
                                     <div class="ms-2 d-inline-block">
                                         <div class="dropdown">
-                                            <button type="button" class="btn btn-sm {{ $color_filtro }} dropdown-toggle" data-bs-toggle="dropdown">
+                                            <button type="button" class="btn btn-sm {{ $color_filtro }} dropdown-toggle"
+                                                data-bs-toggle="dropdown">
                                                 {{ $nombre_filtro }}
                                             </button>
                                             <div class="dropdown-menu">
-                                                <button type="button" class="dropdown-item" wire:click="filtro_inscripcion(0)">
+                                                <button type="button" class="dropdown-item"
+                                                    wire:click="filtro_inscripcion(0)">
                                                     Todas las inscripciones
                                                 </button>
-                                                <button type="button" class="dropdown-item" wire:click="filtro_inscripcion(1)">
+                                                <button type="button" class="dropdown-item"
+                                                    wire:click="filtro_inscripcion(1)">
                                                     Inscripciones completadas
                                                 </button>
-                                                <button type="button" class="dropdown-item" wire:click="filtro_inscripcion(9)">
+                                                <button type="button" class="dropdown-item"
+                                                    wire:click="filtro_inscripcion(9)">
                                                     Inscripciones no finalizadas
                                                 </button>
                                                 <div class="dropdown-divider"></div>
-                                                <button type="button" class="dropdown-item" wire:click="filtro_inscripcion(2)">
+                                                <button type="button" class="dropdown-item"
+                                                    wire:click="filtro_inscripcion(2)">
                                                     Fotografías aprobadas
                                                 </button>
-                                                <button type="button" class="dropdown-item" wire:click="filtro_inscripcion(3)">
+                                                <button type="button" class="dropdown-item"
+                                                    wire:click="filtro_inscripcion(3)">
                                                     Fotografías desaprobadas
                                                 </button>
                                                 <div class="dropdown-divider"></div>
-                                                <button type="button" class="dropdown-item" wire:click="filtro_inscripcion(5)">
+                                                <button type="button" class="dropdown-item"
+                                                    wire:click="filtro_inscripcion(5)">
                                                     Pagos verificados
                                                 </button>
-                                                <button type="button" class="dropdown-item" wire:click="filtro_inscripcion(6)">
+                                                <button type="button" class="dropdown-item"
+                                                    wire:click="filtro_inscripcion(6)">
                                                     Pagos no verificados
                                                 </button>
                                                 <div class="dropdown-divider"></div>
-                                                <button type="button" class="dropdown-item" wire:click="filtro_inscripcion(7)">
+                                                <button type="button" class="dropdown-item"
+                                                    wire:click="filtro_inscripcion(7)">
                                                     Documentos completados
                                                 </button>
-                                                <button type="button" class="dropdown-item" wire:click="filtro_inscripcion(8)">
+                                                <button type="button" class="dropdown-item"
+                                                    wire:click="filtro_inscripcion(8)">
                                                     Sin documentos
                                                 </button>
                                             </div>
@@ -144,6 +154,9 @@
                                     </tr>
                                 </thead>
                                 <tbody>
+                                    {{--
+                                    <livewire:components.inscripciones.list-inscripcion
+                                        :inscripciones="$inscripciones" /> --}}
                                     @forelse ($inscripciones as $item)
                                     <tr>
                                         <td>
@@ -153,14 +166,18 @@
                                             <div class="d-flex gap-3 align-items-center justify-content-start">
                                                 <div>
                                                     @php
-                                                    $foto = HelperUnia::existeArchivo($item->ciclo_id,$item->persona_id,1);
+                                                    $foto =
+                                                    HelperUnia::existeArchivo($item->ciclo_id,$item->persona_id,1);
                                                     // verificar si existe en los archivos
-                                                    $existe = $foto ? HelperUnia::existeArchivoEnProyecto($foto->ruta) : false;
+                                                    $existe = $foto ? HelperUnia::existeArchivoEnProyecto($foto->ruta) :
+                                                    false;
                                                     @endphp
                                                     @if ($existe)
-                                                    <img src="{{ asset($foto->ruta ?? 'static/avatar-none.webp') }}" width="110px" alt="Fotografía">
+                                                    <img src="{{ asset($foto->ruta ?? 'static/avatar-none.webp') }}"
+                                                        width="110px" alt="Fotografía">
                                                     @else
-                                                    <img src="{{ asset('static/avatar-none.webp') }}" width="110px" alt="Fotografía">
+                                                    <img src="{{ asset('static/avatar-none.webp') }}" width="110px"
+                                                        alt="Fotografía">
                                                     @endif
                                                 </div>
                                                 <div class="d-flex flex-column gap-2">
@@ -535,8 +552,8 @@
                                             <td colspan="2">
                                                 <div class="row g-1">
                                                     <div class="col-lg-12">
-                                                        <a href="{{ route('reporte.ficha-matricula', $inscripcion_id ?? 0) }}" target="_blank"
-                                                            class="btn btn-sm py-1 px-2 rounded w-full">
+                                                        <a href="{{ route('reporte.ficha-matricula', $inscripcion_id ?? 0) }}"
+                                                            target="_blank" class="btn btn-sm py-1 px-2 rounded w-full">
                                                             <svg xmlns="http://www.w3.org/2000/svg" class="icon"
                                                                 width="24" height="24" viewBox="0 0 24 24"
                                                                 stroke-width="2" stroke="currentColor" fill="none"
@@ -566,8 +583,8 @@
                                             <td colspan="2">
                                                 <div class="row g-1">
                                                     <div class="col-lg-12">
-                                                        <a href="{{ route('reporte.carta-compromiso', $inscripcion_id ?? 0) }}" target="_blank"
-                                                            class="btn btn-sm py-1 px-2 rounded w-full">
+                                                        <a href="{{ route('reporte.carta-compromiso', $inscripcion_id ?? 0) }}"
+                                                            target="_blank" class="btn btn-sm py-1 px-2 rounded w-full">
                                                             <svg xmlns="http://www.w3.org/2000/svg" class="icon"
                                                                 width="24" height="24" viewBox="0 0 24 24"
                                                                 stroke-width="2" stroke="currentColor" fill="none"
@@ -597,8 +614,8 @@
                                             <td colspan="2">
                                                 <div class="row g-1">
                                                     <div class="col-lg-12">
-                                                        <a href="{{ route('reporte.declaracion-jurada', $inscripcion_id ?? 0) }}" target="_blank"
-                                                            class="btn btn-sm py-1 px-2 rounded w-full">
+                                                        <a href="{{ route('reporte.declaracion-jurada', $inscripcion_id ?? 0) }}"
+                                                            target="_blank" class="btn btn-sm py-1 px-2 rounded w-full">
                                                             <svg xmlns="http://www.w3.org/2000/svg" class="icon"
                                                                 width="24" height="24" viewBox="0 0 24 24"
                                                                 stroke-width="2" stroke="currentColor" fill="none"
@@ -643,7 +660,8 @@
                                     Subir documento
                                 </label>
                                 <input type="file" class="form-control @error('documento') is-invalid @enderror"
-                                    id="documento" wire:model.live="documento" accept="image/jpeg,image/png,image/jpg" />
+                                    id="documento" wire:model.live="documento"
+                                    accept="image/jpeg,image/png,image/jpg" />
                                 <small class="form-hint">
                                     - La fotografía debe ser nítida. <br>
                                     - Se aceptan los formatos JPG, JPEG y PNG.
