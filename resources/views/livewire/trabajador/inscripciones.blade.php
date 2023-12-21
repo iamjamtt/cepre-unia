@@ -23,9 +23,7 @@
         <div class="container-xl">
             <div class="alert alert-info m-0 mb-3 animate__animated animate__fadeIn animate__faster">
                 <span class="fw-bold">
-                    A continuación se muestra el panel de control, el cual le permitirá gestionar, ver y
-                    crear nuevos
-                    ciclos.
+                    A continuación se muestra el panel de control, el cual le permitirá gestionar las inscripciones de los postulantes.
                 </span>
             </div>
             <div class="row g-3">
