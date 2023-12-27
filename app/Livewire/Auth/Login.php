@@ -50,6 +50,16 @@ class Login extends Component
             return;
         }
 
+        if ($user->activo == 0) {
+            $this->addError('dni', 'Usuario desactivado.');
+            // evento de toast basica
+            $this->dispatch('toast-basico',
+                text: 'Usuario desactivado.',
+                color: 'danger'
+            );
+            return;
+        }
+
         if (Hash::check($this->contraseña, $user->password)) {
             $rol = HelpersUnia::getRolByUser($user->id);
 
