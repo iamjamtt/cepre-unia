@@ -116,7 +116,7 @@
                                                             class="spinner-border spinner-border-sm align-middle"></span>
                                                     </div>
                                                 </button> --}}
-                                                    <button type="button" class="btn btn-indigo mt-3">
+                                                    <button type="button" class="btn btn-indigo mt-3" wire:click="guardar_foto">
                                                         Guardar
                                                     </button>
                                                 </div>
