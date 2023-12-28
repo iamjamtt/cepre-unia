@@ -20,7 +20,7 @@ class Documento extends Component
     public $nombre_documento = '';
     public $tipo_documento;
     public $tipo_modal = 'create';
-    #[Rule('required|image|max:2048')]
+    #[Rule('required|file|max:4096')]
     public $documento;
 
     public function mount() {

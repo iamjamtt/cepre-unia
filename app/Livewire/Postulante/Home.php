@@ -44,7 +44,7 @@ class Home extends Component
 
     public function guardar_foto() {
         $this->validate([
-            'foto' => 'required|image|max:2048'
+            'foto' => 'required|image|max:4096'
         ]);
         if ($this->foto) {
             HelpersUnia::subirArchivo($this->foto, 'photos', 1, HelpersUnia::getIdCiclo(), auth()->user()->persona->id);
@@ -67,21 +67,21 @@ class Home extends Component
         // validacion de documentos
         if ($mestizo) {
             $this->validate([
-                'dni' => 'required|image|max:2048',
-                'certificado' => 'required|image|max:2048',
-                'partida' => 'required|image|max:2048'
+                'dni' => 'required|image|max:4096',
+                'certificado' => 'required|image|max:4096',
+                'partida' => 'required|image|max:4096'
             ]);
         } else {
             if ($this->dni_archivo && $this->certificado_archivo && $this->partida_archivo && $this->constancia_archivo == null) {
                 $this->validate([
-                    'constancia' => 'required|image|max:2048'
+                    'constancia' => 'required|image|max:4096'
                 ]);
             } else {
                 $this->validate([
-                    'dni' => 'required|image|max:2048',
-                    'certificado' => 'required|image|max:2048',
-                    'partida' => 'required|image|max:2048',
-                    'constancia' => 'required|image|max:2048'
+                    'dni' => 'required|image|max:4096',
+                    'certificado' => 'required|image|max:4096',
+                    'partida' => 'required|image|max:4096',
+                    'constancia' => 'required|image|max:4096'
                 ]);
             }
         }
@@ -112,7 +112,7 @@ class Home extends Component
 
     public function subir_dni() {
         $this->validate([
-            'dni' => 'required|image|max:2048'
+            'dni' => 'required|image|max:4096'
         ]);
         if ($this->dni) {
             HelpersUnia::subirArchivo($this->dni, 'archivos', 2, HelpersUnia::getIdCiclo(), auth()->user()->persona->id);
@@ -126,7 +126,7 @@ class Home extends Component
 
     public function subir_certificado() {
         $this->validate([
-            'certificado' => 'required|image|max:2048'
+            'certificado' => 'required|image|max:4096'
         ]);
         if ($this->certificado) {
             HelpersUnia::subirArchivo($this->certificado, 'archivos', 4, HelpersUnia::getIdCiclo(), auth()->user()->persona->id);
@@ -140,7 +140,7 @@ class Home extends Component
 
     public function subir_partida() {
         $this->validate([
-            'partida' => 'required|image|max:2048'
+            'partida' => 'required|image|max:4096'
         ]);
         if ($this->partida) {
             HelpersUnia::subirArchivo($this->partida, 'archivos', 5, HelpersUnia::getIdCiclo(), auth()->user()->persona->id);
@@ -154,7 +154,7 @@ class Home extends Component
 
     public function subir_constancia() {
         $this->validate([
-            'constancia' => 'required|image|max:2048'
+            'constancia' => 'required|image|max:4096'
         ]);
         if ($this->constancia) {
             HelpersUnia::subirArchivo($this->constancia, 'archivos', 6, HelpersUnia::getIdCiclo(), auth()->user()->persona->id);
