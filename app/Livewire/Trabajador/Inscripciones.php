@@ -541,41 +541,41 @@ class Inscripciones extends Component
         $grupos = Grupo::where('activo',1)
             ->get();
         $inscripciones = Inscripcion::join('personas', 'personas.id', '=', 'inscripcions.persona_id')
-                ->join('ciclos', 'ciclos.id', '=', 'inscripcions.ciclo_id')
-                ->join('grupos', 'grupos.id', '=', 'personas.grupo_id')
-                ->join('pagos', 'pagos.inscripcion_id', '=', 'inscripcions.id')
-                ->where('inscripcions.ciclo_id', $this->ciclo_filtro)
-                ->where('personas.grupo_id', $this->grupo_filtro == 'all' ? '!=' : '=', $this->grupo_filtro)
-                ->where(
-                    function ($query) {
-                        if ($this->filtro == 1) {
-                            $query->where('inscripcions.estado', 2);
-                        } elseif ($this->filtro == 2) {
-                            $query->where('inscripcions.foto', 1);
-                        } elseif ($this->filtro == 3) {
-                            $query->where('inscripcions.foto', 0);
-                        } elseif ($this->filtro == 5) {
-                            $query->where('pagos.verificacion', 1);
-                        } elseif ($this->filtro == 6) {
-                            $query->where('pagos.verificacion', 0);
-                        } elseif ($this->filtro == 7) {
-                            $query->where('inscripcions.documento', 1);
-                        } elseif ($this->filtro == 8) {
-                            $query->where('inscripcions.documento', 0);
-                        } elseif ($this->filtro == 9) {
-                            $query->where('inscripcions.estado', 1);
-                        }
+            ->join('ciclos', 'ciclos.id', '=', 'inscripcions.ciclo_id')
+            ->join('grupos', 'grupos.id', '=', 'personas.grupo_id')
+            ->join('pagos', 'pagos.inscripcion_id', '=', 'inscripcions.id')
+            ->where('inscripcions.ciclo_id', $this->ciclo_filtro)
+            ->where('personas.grupo_id', $this->grupo_filtro == 'all' ? '!=' : '=', $this->grupo_filtro)
+            ->where(
+                function ($query) {
+                    if ($this->filtro == 1) {
+                        $query->where('inscripcions.estado', 2);
+                    } elseif ($this->filtro == 2) {
+                        $query->where('inscripcions.foto', 1);
+                    } elseif ($this->filtro == 3) {
+                        $query->where('inscripcions.foto', 0);
+                    } elseif ($this->filtro == 5) {
+                        $query->where('pagos.verificacion', 1);
+                    } elseif ($this->filtro == 6) {
+                        $query->where('pagos.verificacion', 0);
+                    } elseif ($this->filtro == 7) {
+                        $query->where('inscripcions.documento', 1);
+                    } elseif ($this->filtro == 8) {
+                        $query->where('inscripcions.documento', 0);
+                    } elseif ($this->filtro == 9) {
+                        $query->where('inscripcions.estado', 1);
                     }
-                )
-                ->where(function ($query) {
-                    $query->where(DB::raw("CONCAT(personas.nombres,' ',personas.apePaterno,' ',personas.apeMaterno)"), 'like', '%' . $this->search . '%')
-                        ->orWhere('personas.dni', 'like', '%' . $this->search . '%');
-                })
-                ->where('inscripcions.activo', 1)
-                ->where('inscripcions.borrado', 0)
-                ->select('inscripcions.*', 'grupos.nombre as nombre_grupo', 'personas.dni', 'ciclos.nombre as ciclo_nombre', 'personas.celular', 'personas.celularApoderado')
-                ->orderBy('inscripcions.id', 'desc')
-                ->paginate($this->mostrar_paginate);
+                }
+            )
+            ->where(function ($query) {
+                $query->where(DB::raw("CONCAT(personas.nombres,' ',personas.apePaterno,' ',personas.apeMaterno)"), 'like', '%' . $this->search . '%')
+                    ->orWhere('personas.dni', 'like', '%' . $this->search . '%');
+            })
+            ->where('inscripcions.activo', 1)
+            ->where('inscripcions.borrado', 0)
+            ->select('inscripcions.*', 'grupos.nombre as nombre_grupo', 'personas.dni', 'ciclos.nombre as ciclo_nombre', 'personas.celular', 'personas.celularApoderado')
+            ->orderBy('inscripcions.id', 'desc')
+            ->paginate($this->mostrar_paginate);
         $lugar_pagos = LugarPago::where('activo', 1)->get();
         $grupos = Grupo::where('activo', 1)->get();
         $lenguas = Language::where('activo', 1)->get();

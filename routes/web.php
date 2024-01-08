@@ -22,7 +22,7 @@ use Illuminate\Support\Facades\Route;
 Route::redirect('/', '/perfil');
 // ruta de la pagina de inicio de sesion
 Route::get('/login', Login::class)
-    ->middleware('is_login')
+    ->middleware('guest')
     ->name('login');
 // ruta de la pagina de registro
 Route::get('/registro', Register::class)
