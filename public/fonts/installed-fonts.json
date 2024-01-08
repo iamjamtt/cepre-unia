@@ -1,7 +1,7 @@
 {
     "inter": {
-        "normal": "C:\\xampp\\htdocs\\cepre-2023\\public\\fonts\/inter_normal_33e221423262f6186af500da54d288da",
-        "bold": "C:\\xampp\\htdocs\\cepre-2023\\public\\fonts\/inter_bold_4fa31816f0361ccd42118e827a9cc46f",
-        "800": "inter_800_6f2a74623d8ef7e4c3c28aae5b8f25c1"
+        "normal": "\/Users\/user\/Dev\/cepre\/public\/fonts\/inter_normal_a6893175f1a8df0ebe2a62d73facc2b1",
+        "bold": "\/Users\/user\/Dev\/cepre\/public\/fonts\/inter_bold_c22dd2f8a049feadd1dd49d6ac98186b",
+        "800": "inter_800_8b54462ec4f8131feb48dbb34bcc70e8"
     }
 }
